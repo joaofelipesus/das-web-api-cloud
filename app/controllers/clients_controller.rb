@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1
   def show
-    render json: @client
+    render json: @client, include: [:purchase_orders]
   end
 
   # POST /clients

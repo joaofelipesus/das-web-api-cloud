@@ -12,7 +12,7 @@ class PurchaseOrdersController < ApplicationController
 
   # GET /purchase_orders/1
   def show
-    render json: @purchase_order
+    render json: @purchase_order, include: { order_items: { include: :product } }
   end
 
   # POST /purchase_orders
