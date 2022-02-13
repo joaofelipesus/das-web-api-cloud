@@ -15,7 +15,7 @@ RSpec.describe '/clients', type: :request do
     {
       name: nil,
       surname: nil,
-      cpf: nil
+      cpf: '123123123'
     }
   end
 
