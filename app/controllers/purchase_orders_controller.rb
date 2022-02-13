@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PurchaseOrdersController < ApplicationController
-  before_action :set_purchase_order, only: %i[ show update destroy ]
+  before_action :set_purchase_order, only: %i[show update destroy]
 
   # GET /purchase_orders
   def index
@@ -39,13 +41,14 @@ class PurchaseOrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_purchase_order
-      @purchase_order = PurchaseOrder.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def purchase_order_params
-      params.require(:purchase_order).permit(:client_id, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_purchase_order
+    @purchase_order = PurchaseOrder.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def purchase_order_params
+    params.require(:purchase_order).permit(:client_id, :date)
+  end
 end
