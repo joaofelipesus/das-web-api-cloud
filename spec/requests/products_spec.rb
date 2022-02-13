@@ -33,13 +33,13 @@ RSpec.describe '/products', type: :request do
       it 'creates a new Product' do
         expect do
           post products_url,
-               params: { product: valid_attributes }, as: :json
+               params: valid_attributes, as: :json
         end.to change(Product, :count).by(1)
       end
 
       it 'renders a JSON response with the new product' do
         post products_url,
-             params: { product: valid_attributes }, as: :json
+             params: valid_attributes, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -49,13 +49,13 @@ RSpec.describe '/products', type: :request do
       it 'does not create a new Product' do
         expect do
           post products_url,
-               params: { product: invalid_attributes }, as: :json
+               params: invalid_attributes, as: :json
         end.to change(Product, :count).by(0)
       end
 
       it 'renders a JSON response with errors for the new product' do
         post products_url,
-             params: { product: invalid_attributes }, as: :json
+             params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
@@ -71,7 +71,7 @@ RSpec.describe '/products', type: :request do
       it 'updates the requested product' do
         product = create(:product)
         patch product_url(product),
-              params: { product: new_attributes }, as: :json
+              params: new_attributes, as: :json
         product.reload
         expect(product.description).to match(new_attributes[:description])
       end
@@ -79,7 +79,7 @@ RSpec.describe '/products', type: :request do
       it 'renders a JSON response with the product' do
         product = create(:product)
         patch product_url(product),
-              params: { product: new_attributes }, as: :json
+              params: new_attributes, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -89,7 +89,7 @@ RSpec.describe '/products', type: :request do
       it 'renders a JSON response with errors for the product' do
         product = create(:product)
         patch product_url(product),
-              params: { product: invalid_attributes }, as: :json
+              params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
