@@ -43,13 +43,13 @@ RSpec.describe '/order_items', type: :request do
       it 'creates a new OrderItem' do
         expect do
           post order_items_url,
-               params: { order_item: valid_attributes }, as: :json
+               params: valid_attributes, as: :json
         end.to change(OrderItem, :count).by(1)
       end
 
       it 'renders a JSON response with the new order_item' do
         post order_items_url,
-             params: { order_item: valid_attributes }, as: :json
+             params: valid_attributes, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -59,13 +59,13 @@ RSpec.describe '/order_items', type: :request do
       it 'does not create a new OrderItem' do
         expect do
           post order_items_url,
-               params: { order_item: invalid_attributes }, as: :json
+               params: invalid_attributes, as: :json
         end.to change(OrderItem, :count).by(0)
       end
 
       it 'renders a JSON response with errors for the new order_item' do
         post order_items_url,
-             params: { order_item: invalid_attributes }, as: :json
+             params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -83,7 +83,7 @@ RSpec.describe '/order_items', type: :request do
       it 'updates the requested order_item' do
         order_item = create(:order_item)
         patch order_item_url(order_item),
-              params: { order_item: new_attributes }, as: :json
+              params: new_attributes, as: :json
         order_item.reload
         expect(order_item.quantity).to match(12)
       end
@@ -91,7 +91,7 @@ RSpec.describe '/order_items', type: :request do
       it 'renders a JSON response with the order_item' do
         order_item = create(:order_item)
         patch order_item_url(order_item),
-              params: { order_item: new_attributes }, as: :json
+              params: new_attributes, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -101,7 +101,7 @@ RSpec.describe '/order_items', type: :request do
       it 'renders a JSON response with errors for the order_item' do
         order_item = create(:order_item)
         patch order_item_url(order_item),
-              params: { order_item: invalid_attributes }, as: :json
+              params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
