@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
+  it { should have_many(:purchase_orders) }
+
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:surname) }
   it { should validate_presence_of(:cpf) }
