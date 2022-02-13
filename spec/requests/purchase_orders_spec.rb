@@ -19,14 +19,10 @@ RSpec.describe '/purchase_orders', type: :request do
     }
   end
 
-  let(:valid_headers) do
-    {}
-  end
-
   describe 'GET /index' do
     it 'renders a successful response' do
       create(:purchase_order)
-      get purchase_orders_url, headers: valid_headers, as: :json
+      get purchase_orders_url, as: :json
       expect(response).to be_successful
     end
   end
@@ -44,13 +40,13 @@ RSpec.describe '/purchase_orders', type: :request do
       it 'creates a new PurchaseOrder' do
         expect do
           post purchase_orders_url,
-               params: { purchase_order: valid_attributes }, headers: valid_headers, as: :json
+               params: { purchase_order: valid_attributes }, as: :json
         end.to change(PurchaseOrder, :count).by(1)
       end
 
       it 'renders a JSON response with the new purchase_order' do
         post purchase_orders_url,
-             params: { purchase_order: valid_attributes }, headers: valid_headers, as: :json
+             params: { purchase_order: valid_attributes }, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -66,7 +62,7 @@ RSpec.describe '/purchase_orders', type: :request do
 
       it 'renders a JSON response with errors for the new purchase_order' do
         post purchase_orders_url,
-             params: { purchase_order: invalid_attributes }, headers: valid_headers, as: :json
+             params: { purchase_order: invalid_attributes }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -85,7 +81,7 @@ RSpec.describe '/purchase_orders', type: :request do
       it 'updates the requested purchase_order' do
         purchase_order = create(:purchase_order)
         patch purchase_order_url(purchase_order),
-              params: { purchase_order: new_attributes }, headers: valid_headers, as: :json
+              params: { purchase_order: new_attributes }, as: :json
         purchase_order.reload
         expect(purchase_order.date).to match(3.days.from_now.to_date)
       end
@@ -93,7 +89,7 @@ RSpec.describe '/purchase_orders', type: :request do
       it 'renders a JSON response with the purchase_order' do
         purchase_order = create(:purchase_order)
         patch purchase_order_url(purchase_order),
-              params: { purchase_order: new_attributes }, headers: valid_headers, as: :json
+              params: { purchase_order: new_attributes }, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -103,7 +99,7 @@ RSpec.describe '/purchase_orders', type: :request do
       it 'renders a JSON response with errors for the purchase_order' do
         purchase_order = create(:purchase_order)
         patch purchase_order_url(purchase_order),
-              params: { purchase_order: invalid_attributes }, headers: valid_headers, as: :json
+              params: { purchase_order: invalid_attributes }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -114,7 +110,7 @@ RSpec.describe '/purchase_orders', type: :request do
     it 'destroys the requested purchase_order' do
       purchase_order = create(:purchase_order)
       expect do
-        delete purchase_order_url(purchase_order), headers: valid_headers, as: :json
+        delete purchase_order_url(purchase_order), as: :json
       end.to change(PurchaseOrder, :count).by(-1)
     end
   end
