@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :client do
-    cpf { 'MyString' }
-    name { 'MyString' }
-    surname { 'MyString' }
+    cpf { CPF.generate }
+    name { Faker::TvShows::SiliconValley.character }
+    surname { Faker::TvShows::SiliconValley.app }
   end
 end
