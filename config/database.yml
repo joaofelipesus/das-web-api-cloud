@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: postgres
+  user: postgres
+  port: 5432
+
+development:
+  <<: *default
+  database: das_web_api_development
+
+test:
+  <<: *default
+  database: das_web_api_test
+  user: postgres
+  password: passwd
+  host: <%= ENV['TEST_DATABASE_HOST'] %>

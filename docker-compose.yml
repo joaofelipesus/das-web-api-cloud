@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  postgres:
+    image: "postgres:13.5"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+
+  web:
+    depends_on:
+      - "postgres"
+      - "mailcatcher"
+    build: .
+    command: bash -c "(bundle check || bundle install) && bundle exec puma -C config/puma.rb"
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/das-web-api
+      - gems:/gems
+
+volumes:
+  postgres:
+  gems:
