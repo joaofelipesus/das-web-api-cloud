@@ -49,6 +49,6 @@ class PurchaseOrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def purchase_order_params
-    params.require(:purchase_order).permit(:client_id, :date)
+    params.permit(:client_id, :date)
   end
 end
