@@ -40,13 +40,13 @@ RSpec.describe '/clients', type: :request do
       it 'creates a new Client' do
         expect do
           post clients_url,
-               params: { client: valid_attributes }, as: :json
+               params: valid_attributes, as: :json
         end.to change(Client, :count).by(1)
       end
 
       it 'renders a JSON response with the new client' do
         post clients_url,
-             params: { client: valid_attributes }, as: :json
+             params: valid_attributes, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -56,13 +56,13 @@ RSpec.describe '/clients', type: :request do
       it 'does not create a new Client' do
         expect do
           post clients_url,
-               params: { client: invalid_attributes }, as: :json
+               params: invalid_attributes, as: :json
         end.to change(Client, :count).by(0)
       end
 
       it 'renders a JSON response with errors for the new client' do
         post clients_url,
-             params: { client: invalid_attributes }, as: :json
+             params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -78,7 +78,7 @@ RSpec.describe '/clients', type: :request do
       it 'updates the requested client' do
         client = create(:client)
         patch client_url(client),
-              params: { client: new_attributes }, as: :json
+              params: new_attributes, as: :json
         client.reload
         expect(client.name).to match(new_attributes[:name])
       end
@@ -86,7 +86,7 @@ RSpec.describe '/clients', type: :request do
       it 'renders a JSON response with the client' do
         client = create(:client)
         patch client_url(client),
-              params: { client: new_attributes }, as: :json
+              params: new_attributes, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
@@ -96,7 +96,7 @@ RSpec.describe '/clients', type: :request do
       it 'renders a JSON response with errors for the client' do
         client = create(:client)
         patch client_url(client),
-              params: { client: invalid_attributes }, as: :json
+              params: invalid_attributes, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including('application/json'))
       end
