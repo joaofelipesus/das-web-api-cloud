@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "a7359f69-34a8-4e66-918c-d258bb303548",
+		"name": "das-ewb-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clients",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/clients",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/clients/bbe4fe0c-ed55-4834-b321-82c13eb8f399",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients",
+								"bbe4fe0c-ed55-4834-b321-82c13eb8f399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/clients/ac9a5dc0-a168-46ab-ad20-c7291cc7bc04",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients",
+								"ac9a5dc0-a168-46ab-ad20-c7291cc7bc04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"joao\",\n    \"surname\": \"felipe\",\n    \"cpf\": \"92743200006\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/clients/bbe4fe0c-ed55-4834-b321-82c13eb8f399",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients",
+								"bbe4fe0c-ed55-4834-b321-82c13eb8f399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jon\",\n    \"surname\": \"doe\",\n    \"cpf\": \"90873824059\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/clients",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"clients"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "Felipe",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "08922037903",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/products",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/products/4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/products/4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Some cool product [EDITED]\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/products/4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products",
+								"4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Some cool product\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/products",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order_item",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/order_items",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"order_items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/order_items/8448cab1-3779-4160-8685-469da574cfa7",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"order_items",
+								"8448cab1-3779-4160-8685-469da574cfa7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/order_items/8448cab1-3779-4160-8685-469da574cfa7",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"order_items",
+								"8448cab1-3779-4160-8685-469da574cfa7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order_id\": \"9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3\",\n    \"product_id\": \"4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df\",\n    \"quantity\": 289\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/order_items/8448cab1-3779-4160-8685-469da574cfa7",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"order_items",
+								"8448cab1-3779-4160-8685-469da574cfa7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order_id\": \"9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3\",\n    \"product_id\": \"4639ccc6-7dbf-40c1-b8fc-e06f27fbd3df\",\n    \"quantity\": 42\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/order_items",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"order_items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "purchase_order",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/purchase_orders",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"purchase_orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/purchase_orders/9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"purchase_orders",
+								"9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/purchase_orders/9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"purchase_orders",
+								"9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"ac9a5dc0-a168-46ab-ad20-c7291cc7bc04\",\n    \"date\": \"2021-02-13\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/purchase_orders",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"purchase_orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2021-03-18\"\n}"
+						},
+						"url": {
+							"raw": "https://das-web-api.herokuapp.com/purchase_orders/9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3",
+							"protocol": "https",
+							"host": [
+								"das-web-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"purchase_orders",
+								"9f0a13d9-926d-4d4a-ab6f-4b58a73c6eb3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
